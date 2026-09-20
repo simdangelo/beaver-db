@@ -173,8 +173,12 @@ Regole che non si rompono:
 - L'unica unità di I/O verso il disco è la **pagina** (4096 byte fissi).
 - Il formato su disco è sempre **byte espliciti**: campi impacchettati con
   `struct`, offset calcolati a mano. Mai serializzare oggetti Python.
-- Il buffer pool è l'unico componente che tocca il disco: tutto il resto
-  chiede pagine a lui.
+- **Sopra il page manager, l'unico componente che tocca il disco è il buffer
+  pool**: tutto il resto chiede pagine a lui. Il page manager non fa eccezione
+  a questa regola, perché *è* il livello del disco.
+- Gli access method (slotted page, heap file) lavorano su pagine **in memoria**
+  (una `bytearray` da `PAGE_SIZE`) e non fanno I/O: ricevono una pagina, la
+  modificano in posto e la restituiscono. La persistenza è di un altro livello.
 - Gli operatori dell'executor seguono il **modello Volcano**: ogni operatore
   espone un iteratore (`__iter__`/`__next__` in Python) e tira le tuple da
   quello del figlio.

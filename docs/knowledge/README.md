@@ -22,6 +22,7 @@ resteranno utili anche se beaver-db cambiasse forma.
 | File | Cosa insegna |
 |---|---|
 | `file-binari-in-python.md` | API dei file binari: stream vs `Path`, `read`/`readinto`, `bytes`/`bytearray`, short I/O, categorie di errore |
+| `struct-e-buffer.md` | `struct` (`pack`/`unpack`/`pack_into`/`unpack_from`), offset e disegni del buffer passo per passo |
 | `testing-con-pytest-e-hypothesis.md` | pytest (nomi, fixture, `tmp_path`), quando costruire a mano, Hypothesis e gli health check |
 
 ## Riferimenti incrociati

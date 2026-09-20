@@ -8,3 +8,11 @@ class PageNotAllocatedError(Exception):
 
 class InvalidPageSizeError(Exception):
     """The page size is not standard size."""
+
+
+class SlotNotAllocatedError(Exception):
+    """The requested slot is free or out of range."""
+
+
+class PageFullError(Exception):
+    """The page has no enough space."""
