@@ -16,3 +16,11 @@ class SlotNotAllocatedError(Exception):
 
 class PageFullError(Exception):
     """The page has no enough space."""
+
+
+class BufferPoolFullError(Exception):
+    """The buffer pool has no evictable frame."""
+
+
+class PageNotPinnedError(Exception):
+    """The page is not in the buffer pool or is not pinned."""
